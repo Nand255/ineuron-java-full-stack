@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans
+        https://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<bean id="sysDate" class="java.util.Date" />
+	<bean id="dob" class="java.util.Date">
+		<property name="year" value="84" />
+		<property name="month" value="1" />
+		<property name="date" value="15" />
+	</bean>
+
+	<bean id="marks" class="in.ineuron.comp.MarksInfo">
+		<property name="marksInfo">
+			<array>
+				<value>98</value>
+				<value>97</value>
+				<value>91</value>
+				<value>85</value>
+				<value>100</value>
+			</array>
+		</property>
+	</bean>
+	
+	<bean id="clg" class="in.ineuron.comp.College">
+		<property name="stdNames">
+			<list>
+				<value>pratik</value>
+				<value>prince</value>
+				<value>fanil</value>
+				<value>dakshit</value>
+			</list>
+		</property>
+		
+		<property name="dateList">
+			<list>
+				<ref bean="sysDate"/>
+				<ref bean="dob"/>
+			</list>
+		</property>
+	</bean>
+	
+	<bean id="contact" class="in.ineuron.comp.ContactsInfo">
+		<property name="phoneNumbers">
+			<set value-type="java.lang.Long">
+				<value>3332221115</value>
+				<value>1234563218</value>
+				<value>9999999999</value>
+				<value>9999999999</value>
+			</set>
+		</property>
+		
+		<property name="dates">
+			<set>
+				<ref bean="sysDate"/>
+				<ref bean="dob"/>
+			</set>
+		</property>
+	</bean>
+	
+	<bean id="uInfo" class="in.ineuron.comp.UniversityInfo">
+		<property name="facultyDetails">
+			<map key-type="java.lang.Integer" value-type="java.lang.String">
+				<entry>
+					<key>
+						<value>7</value>
+					</key>
+					<value>dhoni</value>
+				</entry>
+				<entry key="10" value="sachin" />
+				<entry key="18" value="kohli" />
+			</map>
+		</property>
+		<property name="datesInfo">
+			<map key-type="java.lang.String" value-type="java.util.Date">
+				<entry>
+					<key>
+						<value>toDay</value>
+					</key>
+					<ref bean="sysDate"/>
+				</entry>
+				<entry key="dob" value-ref="dob" />
+			</map>
+		</property>
+		<property name="unis">
+			<props value-type="java.lang.String">
+				<prop key="ksv">LDPR</prop>
+				<prop key="gtu">every clg</prop>
+				<prop key="iit">iits</prop>
+			</props>
+		</property>
+	</bean>
+
+</beans>
