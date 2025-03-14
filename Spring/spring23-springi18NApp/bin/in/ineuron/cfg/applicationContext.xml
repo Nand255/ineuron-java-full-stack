@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans
+        https://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<!-- internally autowire="constructor" uses "bytype" to resolve ambiguity problem a. you can use primary="true" -->
+	<!-- <bean id="bDart" class="in.ineuron.comp.BlueDart" primary="true" /> -->
+	<!-- or b. setting bean name and parameter name of the constructor also same -->
+	<bean id="courier" class="in.ineuron.comp.BlueDart" />
+	<!-- autowire-candidate="false" means bean will be created but it won't participate in autowiring but you can explicitly/manually add in constructor-arg -->
+	<bean id="fFlight" class="in.ineuron.comp.FirstFlight" autowire-candidate="false"/>
+	<!-- primary="true" will be given higher priority -->
+	<bean id="dtdc" class="in.ineuron.comp.DTDC" primary="true"/>
+
+	<!-- configuring the Target bean-->
+	
+	<bean id="fpkt" class="in.ineuron.comp.Flipkart" autowire="constructor" >
+	<!-- autowire="no" means bean injection should be done manually /it disable autowiring -->
+		<constructor-arg name="discount" value="29" />
+	</bean>
+		
+</beans>
