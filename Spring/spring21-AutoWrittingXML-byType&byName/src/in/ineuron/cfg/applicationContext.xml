@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans
+        https://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<bean id="bDart" class="in.ineuron.comp.BlueDart" primary="true" />
+	<bean id="fFlight" class="in.ineuron.comp.FirstFlight"/>
+	<bean id="dtdc" class="in.ineuron.comp.DTDC"/>
+
+	<!-- configuring the Target bean-->
+	
+	<!-- using autowire="byType" to configure the courier bean to Target Bean -->
+	<bean id="fpkt" class="in.ineuron.comp.Flipkart" autowire="byType" >
+		<property name="discount" value="30" />
+	</bean>
+	
+	
+	<!-- using autowire="byName" to configure the courier bean to Target Bean -->
+	<!-- in this method xml file should not contain same id, it should be unique or it will give parsing error -->	
+	<!-- <bean id="courier" class="in.ineuron.comp.FirstFlight"/>
+	<bean id="fpkt" class="in.ineuron.comp.Flipkart" autowire="byName" >
+		<property name="discount" value="30" />
+	</bean> -->
+	
+</beans>

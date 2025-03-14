@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans
+        https://www.springframework.org/schema/beans/spring-beans.xsd">
+	
+	<bean id="baseCar" class="in.ineuron.comp.Car" abstract="true">
+		<constructor-arg name="model" value="swift" />
+		<constructor-arg name="compny" value="suzuki" />
+		<constructor-arg name="type"><null/></constructor-arg>
+		<constructor-arg name="fuelType" value="diesel" />
+		<constructor-arg name="engineCC" value="1200" />
+	</bean>
+
+	<bean id="car1" class="in.ineuron.comp.Car" parent="baseCar">
+		<constructor-arg name="regNo" value="GJ234502" />
+		<constructor-arg name="engineNo" value="5543456" />
+		<constructor-arg name="color" value="black" />
+		<constructor-arg name="owner" value="me" />
+	</bean>
+
+	<bean id="car2" class="in.ineuron.comp.Car" parent="baseCar">
+		<constructor-arg name="regNo" value="GJ543206" />
+		<constructor-arg name="engineNo" value="5548329" />
+		<constructor-arg name="color" value="white" />
+		<constructor-arg name="owner" value="agian me, i am rich" />
+	</bean>
+
+</beans>
